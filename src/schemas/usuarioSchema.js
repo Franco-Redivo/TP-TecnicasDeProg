@@ -1,6 +1,6 @@
 import {z} from 'zod';
 
-const clienteSchema = z.object({
+const usuarioSchema = z.object({
     username: z.string({
         invalid_type_error: 'Username must be a string',
         required_error: 'Username is required'
@@ -9,10 +9,10 @@ const clienteSchema = z.object({
     password: z.string().min(4).max(10)
 });
 
-export function validateCliente(cliente){
-    return clienteSchema.safeParse(cliente);
+export function validateUsuario(usuario){
+    return usuarioSchema.safeParse(usuario);
 }
 
-export function validateClienteUpdate(cliente){
-    return clienteSchema.partial().safeParse(cliente);
+export function validateUsuarioUpdate(usuario){
+    return usuarioSchema.partial().safeParse(usuario);
 }
